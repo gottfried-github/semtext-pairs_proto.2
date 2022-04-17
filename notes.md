@@ -25,3 +25,9 @@ The logic of regex is to have:
 1. groups of texts, where one group represents the text where there's none of the characters belonging to any of the tokens;
 2. groups, which entirely consist of characters belonging to one of the tokens.
 The two kinds of groups are mutually exclusive: the first kind doesn't contain characters from the second kind and vice-versa.
+
+In the `tokens` in `tokens.js`, the `text` token is the example of `1` while the other tokens are examples of the `2`.
+
+## The `text` regex
+In the `[]`, I include the ranges, defined above. The `\s` is whitespace.
+The expression means: match any of (one `|` - or - the other `|` yet another, and so on) the expressions inside the `(?:)` one or more `+` times.
