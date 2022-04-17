@@ -24,5 +24,5 @@ const tokens = {
 }
 
 export {
-
+    tokens
 }
