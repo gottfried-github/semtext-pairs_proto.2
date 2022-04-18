@@ -9,8 +9,8 @@
             This one, compared to the other one is arguably less cluttered, more clean: the tags are laid out in a single line and there's more margin space. It is meant to be scrolled horizontally.
             There's also an artistic touch to it in that the space on the left extends beyond the fixed margin size as long as the tags continue.
             (div){{
-                (img){{(src){{link/to/image.png}}}}
-                (img){{(src){{link/to/image.png}}}}
+                (img){{(src){{link/to/image.png }} }}
+                (img){{(src){{link/to/image.png }} }}
             }}
         }}
         (li){{
