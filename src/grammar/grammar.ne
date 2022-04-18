@@ -5,7 +5,6 @@
     const {tokens} = require('./tokens.js')
 
     const lexer = moo.compile(tokens)
-    console.log(lexer)
 %}
 
 @lexer lexer

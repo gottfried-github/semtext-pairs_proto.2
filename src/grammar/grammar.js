@@ -9,7 +9,6 @@ function id(x) { return x[0]; }
     const {tokens} = require('./tokens.js')
 
     const lexer = moo.compile(tokens)
-    console.log(lexer)
 var grammar = {
     Lexer: lexer,
     ParserRules: [

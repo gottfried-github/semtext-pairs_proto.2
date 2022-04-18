@@ -3,15 +3,11 @@ function rootEntity(v) {
 }
 
 function valueSingle(v) {
-    // return 2 === v[0].length
-    //     ? {label: v[0][0], node: v[0][1]}
-    //     : v[0][0]
     return v[0][0]
 }
 
 function entityLabel(v) {
     return v[1]
-    // return v[2]
 }
 
 function entityNodeContent(v) {
@@ -21,7 +17,6 @@ function entityNodeContent(v) {
 
 function entityNode(v) {
     return v[1]
-    // return v[1].map(v => v[0])
 }
 
 function entity(v) {
@@ -32,7 +27,7 @@ function entity(v) {
 }
 
 function text(v) {
-    console.log("text", v[0])
+    // console.log("text", v[0])
     return v[0]
 }
 
