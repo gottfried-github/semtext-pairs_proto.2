@@ -12,13 +12,13 @@ const tokens = {
     braceClose: {
       match: /\)/
     },
-    text: {
-        // see The text token
-        match: /(?:[\u0000-\u0027]|[\u002A-\u007A]|\u007C|[\u007E-\uFFFF]|\s)+/,
-        lineBreaks: true
-    },
     space: {
         match: /\s+/,
+        lineBreaks: true
+    },
+    text: {
+        // see The text token
+        match: /[^\u0028\u0029\u007B\u007D]+/,
         lineBreaks: true
     },
 }

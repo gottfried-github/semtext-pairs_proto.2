@@ -1,5 +1,5 @@
 function rootEntity(v) {
-    return v[1]
+    return v[0]
 }
 
 function valueSingle(v) {
@@ -20,8 +20,8 @@ function entityNodeContent(v) {
 }
 
 function entityNode(v) {
-    // return v[1]
-    return v[1].map(v => v[0])
+    return v[1]
+    // return v[1].map(v => v[0])
 }
 
 function entity(v) {
