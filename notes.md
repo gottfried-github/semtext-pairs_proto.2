@@ -23,6 +23,24 @@ Unicode uses digits and (uppercase) letters to rank the characters. E.g.:
 3. `{` is `007B`
 4. `}` is `007D`
 
+# Parsed data
+## Originally parsed data
+`nearley.js` parses the tokens into certain data structure, which, among other things has:
+1. `type`: the name of the parsed token;
+2. `value`: the parsed value
+The `type: text` node has `text` property, which is ought to be used over `value` (e.g., it includes leading whitespace).
+
+## Processed data
+In the postprocessing stage, I convert the parsed data into *nodes*.
+The nodes are either `entity` or `text`. The root node is always an `entity`.
+
+## Entity
+1. `label`: originally parsed `text`
+2. `node`: an array of nodes
+
+## Text
+Originally parsed `text`
+
 # Converter
 Any render function (be it `renderBottomUp` or `img`) should return a dom node.
 

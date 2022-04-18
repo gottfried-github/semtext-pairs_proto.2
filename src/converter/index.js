@@ -9,15 +9,18 @@ function li() {}
 function h1() {}
 
 function img(node, document) {
-    const srcNode = node.find(node => 'src' === node.label.value)
+    const dom = document.createElement('img')
 
+    const srcNode = node.find(node => 'src' === node.label.value)
+    if (!srcNode) return dom
+
+    // see 'img'
     const src = srcNode.find(node => 'text' === node.type).text
     if (!src) throw new Error()
 
-    const img = document.createElement('img')
-    img.src = src
+    dom.src = src
 
-    return img
+    return dom
 }
 
 function node() {}
@@ -25,7 +28,7 @@ function node() {}
 function text() {}
 
 function renderBottomUp(node, document) {
-    // node either has a label, in which case it is an entity, or it is a text
+    // node either has a label, in which case it is an entity, or it is a text (see Processed data)
     if (!tree.label) return document.createTextNode(tree.text)
 
     if (!TAGS.includes(tree.label.value)) throw new Error()
