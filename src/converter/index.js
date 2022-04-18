@@ -1,4 +1,4 @@
-const TAGS = ['div', 'section', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'img']
+const TAGS = ['div', 'section', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'img']
 
 // function section() {}
 // function div() {}
@@ -14,7 +14,7 @@ function img(node, document) {
     if (!srcNode) return dom
 
     // see 'img'
-    const src = srcNode.find(node => 'text' === node.type).text
+    const src = srcNode.node.find(node => 'text' === node.type).text
     if (!src) throw new Error()
 
     dom.src = src
@@ -24,16 +24,16 @@ function img(node, document) {
 
 function renderBottomUp(node, document) {
     // node either has a label, in which case it is an entity, or it is a text (see Processed data)
-    if (!tree.label) return document.createTextNode(tree.text)
+    if (!node.label) return document.createTextNode(node.text)
 
-    if (!TAGS.includes(tree.label.value)) throw new Error()
+    if (!TAGS.includes(node.label.value)) throw new Error()
 
-    if ('img' === tree.label.value) return img(tree.node, document)
+    if ('img' === node.label.value) return img(node.node, document)
 
-    const dom = document.createElement(tree.label.value)
+    const dom = document.createElement(node.label.value)
 
-    tree.node.forEach(node => {
-        dom.appendChild(renderBottomUp(node), document)
+    node.node.forEach(node => {
+        dom.appendChild(renderBottomUp(node, document))
     })
 
     return dom
@@ -43,4 +43,4 @@ function convert(tree, document) {
     return renderBottomUp(tree, document)
 }
 
-export convert
+module.exports = {convert}
