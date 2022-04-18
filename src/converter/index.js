@@ -24,17 +24,18 @@ function node() {}
 
 function text() {}
 
-function renderBottomUp(tree, document) {
+function renderBottomUp(node, document) {
+    // node either has a label, in which case it is an entity, or it is a text
+    if (!tree.label) return document.createTextNode(tree.text)
+
     if (!TAGS.includes(tree.label.value)) throw new Error()
+
     if ('img' === tree.label.value) return img(tree.node, document)
 
     const dom = document.createElement(tree.label.value)
 
     tree.node.forEach(node => {
-        if ('label' in node) {dom.appendChild(renderBottomUp(node), document); return}
-
-        // node either has a label, in which case it is an entity, or it is a text
-        dom.appendChild(document.createTextNode(node.text), document)
+        dom.appendChild(renderBottomUp(node), document)
     })
 
     return dom

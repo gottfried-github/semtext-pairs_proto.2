@@ -27,7 +27,7 @@ Unicode uses digits and (uppercase) letters to rank the characters. E.g.:
 Any render function (be it `renderBottomUp` or `img`) should return a dom node.
 
 ## `renderBottomUp`
-Renders `entities`: creates a dom node with the corresponding tag, appends the rendered children and returns the node.
+Creates a dom node with the corresponding tag, appends the rendered children and returns the node.
 
 ## `img`
 Treats first occurring `text` node as the `src` attribute.
