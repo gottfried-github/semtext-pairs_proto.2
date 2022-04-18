@@ -10,7 +10,8 @@ function valueSingle(v) {
 }
 
 function entityLabel(v) {
-    return v[2]
+    return v[1]
+    // return v[2]
 }
 
 function entityNodeContent(v) {
@@ -19,8 +20,8 @@ function entityNodeContent(v) {
 }
 
 function entityNode(v) {
-    return v[1]
-    // return v[1].map(v => v[0])
+    // return v[1]
+    return v[1].map(v => v[0])
 }
 
 function entity(v) {

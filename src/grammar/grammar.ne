@@ -5,17 +5,20 @@
     const {tokens} = require('./tokens.js')
 
     const lexer = moo.compile(tokens)
+    console.log(lexer)
 %}
 
 @lexer lexer
+
+root_entity -> (text):? entity (text):? {% rootEntity %}
 
 entity -> entity_label entity_node {% entity %}
 
 value_single -> (text | entity) {% valueSingle %}
 
-entity_node -> %dblBraceCrlOpen (_ value_single {% entityNodeContent %}):* _ %dblBraceCrlClose _ {% entityNode %}
+entity_node -> %dblBraceCrlOpen (value_single):* %dblBraceCrlClose {% entityNode %}
 
-entity_label -> _ %braceOpen text %braceClose {% entityLabel %}
+entity_label -> %braceOpen text %braceClose {% entityLabel %}
 
 text -> %text {% text %}
 
