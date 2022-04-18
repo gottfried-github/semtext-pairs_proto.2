@@ -1,12 +1,11 @@
-const TAGS = ['section', 'div', 'li', 'ul', 'ol', 'h1', 'img']
+const TAGS = ['div', 'section', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'img']
 
-function section() {}
-
-function div() {}
-
-function li() {}
-
-function h1() {}
+// function section() {}
+// function div() {}
+// function li() {}
+// function h1() {}
+// function node() {}
+// function text() {}
 
 function img(node, document) {
     const dom = document.createElement('img')
@@ -22,10 +21,6 @@ function img(node, document) {
 
     return dom
 }
-
-function node() {}
-
-function text() {}
 
 function renderBottomUp(node, document) {
     // node either has a label, in which case it is an entity, or it is a text (see Processed data)
@@ -45,5 +40,7 @@ function renderBottomUp(node, document) {
 }
 
 function convert(tree, document) {
-
+    return renderBottomUp(tree, document)
 }
+
+export convert
