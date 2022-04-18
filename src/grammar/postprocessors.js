@@ -10,6 +10,10 @@ function entityLabel(v) {
     return v[1]
 }
 
+function entityContent(v) {
+    return v[0]
+}
+
 function entityNodeContent(v) {
     if ('text' === v[1].type && 'space' === v[0].type) v[1].text = `${v[0].value}${v[1].text}`
     return v[1]
@@ -35,6 +39,7 @@ module.exports = {
     entityLabel,
     entityNode,
     entityNodeContent,
+    entityContent,
     entity,
     rootEntity,
     valueSingle,

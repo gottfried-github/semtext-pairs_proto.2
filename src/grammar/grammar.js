@@ -4,7 +4,7 @@
 function id(x) { return x[0]; }
 
     const moo = require('moo')
-    const {text, entityLabel, entityNode, entityNodeContent, valueSingle, entity, rootEntity} = require("./postprocessors.js")
+    const {text, entityLabel, entityNode, entityContent, entityNodeContent, valueSingle, entity, rootEntity} = require("./postprocessors.js")
 
     const {tokens} = require('./tokens.js')
 
@@ -18,7 +18,7 @@ var grammar = {
     {"name": "entity_content$ebnf$1", "symbols": []},
     {"name": "entity_content$ebnf$1$subexpression$1", "symbols": ["_", "value_single"], "postprocess": entityNodeContent},
     {"name": "entity_content$ebnf$1", "symbols": ["entity_content$ebnf$1", "entity_content$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
-    {"name": "entity_content", "symbols": ["entity_content$ebnf$1"]},
+    {"name": "entity_content", "symbols": ["entity_content$ebnf$1"], "postprocess": entityContent},
     {"name": "value_single$subexpression$1", "symbols": ["text"]},
     {"name": "value_single$subexpression$1", "symbols": ["entity"]},
     {"name": "value_single", "symbols": ["value_single$subexpression$1"], "postprocess": valueSingle},
