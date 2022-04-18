@@ -23,4 +23,11 @@ Unicode uses digits and (uppercase) letters to rank the characters. E.g.:
 3. `{` is `007B`
 4. `}` is `007D`
 
+# Converter
+Any render function (be it `renderBottomUp` or `img`) should return a dom node.
 
+## `renderBottomUp`
+Renders `entities`: creates a dom node with the corresponding tag, appends the rendered children and returns the node.
+
+## `img`
+Treats first occurring `text` node as the `src` attribute.
