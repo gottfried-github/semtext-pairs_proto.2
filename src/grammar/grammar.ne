@@ -1,6 +1,6 @@
 @{%
     const moo = require('moo')
-    const {text, entityLabel, entityNode, valueSingle, entity} = require("./postprocessors.js")
+    const {text, entityLabel, entityNode, entityNodeContent, valueSingle, entity, rootEntity} = require("./postprocessors.js")
 
     const {tokens} = require('./tokens.js')
 
@@ -13,9 +13,9 @@ entity -> entity_label entity_node {% entity %}
 
 value_single -> (text | entity) {% valueSingle %}
 
-entity_node -> %dblBraceCrlOpen (value_single):* %dblBraceCrlClose {% entityNode %}
+entity_node -> %dblBraceCrlOpen (_ value_single {% entityNodeContent %}):* _ %dblBraceCrlClose _ {% entityNode %}
 
-entity_label -> %braceOpen text %braceClose {% entityLabel %}
+entity_label -> _ %braceOpen text %braceClose {% entityLabel %}
 
 text -> %text {% text %}
 

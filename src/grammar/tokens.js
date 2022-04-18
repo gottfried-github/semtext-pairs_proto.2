@@ -18,7 +18,7 @@ const tokens = {
     },
     text: {
         // see The text token
-        match: /(?:[\u0000-\u0027]|[\u002A-\u007A]|\u007C|[\u007E-\uFFFF]|\s)+/,
+        match: /(?:[\u0000-\u0027]|[\u002A-\u007A]|\u007C|[\u007E-\uFFFF])+/,
         lineBreaks: true
     }
 }
