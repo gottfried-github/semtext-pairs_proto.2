@@ -23,6 +23,9 @@ Unicode uses digits and (uppercase) letters to rank the characters. E.g.:
 3. `{` is `007B`
 4. `}` is `007D`
 
+### `text`: allowing braces in text - if not followed by open curly brace
+Following the logic, described in `'the logic of the token matchers'`, we should exclude braces-enclosed text followed by an opening curly brace, e.g.: `(a){`. Ideally, we'd also exclude this: `((a)){`. E.g., in `a (b) c (d){{e}}`, we want to match `a (b) c `. Equally, for `a (b) c ((d)){{e}}`. The current regexp only works in the former case, but not in the latter.
+
 # Parsed data
 ## Originally parsed data
 `nearley.js` parses the tokens into certain data structure, which, among other things has:
