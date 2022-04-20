@@ -1,7 +1,7 @@
 {
-  "name": "htmlat",
+  "name": "semtext-pairs",
   "version": "0.0.1",
-  "description": "a syntax for putting text into an html structure",
+  "description": "syntax for creating nested named lists of text and lists, via label-entity pairs",
   "main": "src/index.js",
   "scripts": {
     "test": "node src/index.js"
