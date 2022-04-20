@@ -1,5 +1,5 @@
 {
-  "name": "semtext-pairs",
+  "name": "semtext-pairs_proto.2",
   "version": "0.0.1",
   "description": "syntax for creating nested named lists of text and lists, via label-entity pairs",
   "main": "src/index.js",
