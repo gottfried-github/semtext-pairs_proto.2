@@ -29,21 +29,3 @@ The `2.` *regexp* does the exclusion, but it doesn't allow the `(c)` in `a (b (c
 With the `2.`, the parser will allow this: `a (b) c (d (e) f){{g}}` - here, the label will be `d (e) f`; but this will have an error: `a (b) c (d (e (f))){{}}` (as well as this: `a (b) c ((d)){{e}}`). Also, this will have an error: `a (b (c)) d (e){{f}}`.
 The `1.` regexp allows this: `a (b (c))`; it excludes `(d){{e}}` (in `a (b) c (d){{e}}` it parses `a (b) c `), but it doesn't fully exclude this: `((d)){{e}}` - it parses `((d)`.
 With the `1.` regexp, the parser won't allow the last example.
-
-# Parsed data
-## Originally parsed data
-`nearley.js` parses the tokens into certain data structure, which, among other things has:
-1. `type`: the name of the parsed token;
-2. `value`: the parsed value
-The `type: text` node has `text` property, which is ought to be used over `value` (e.g., it includes leading whitespace).
-
-## Processed data
-In the postprocessing stage, I convert the parsed data into *nodes*.
-The nodes are either `entity` or `text`. The root node is always an `entity`.
-
-## Entity
-1. `label`: originally parsed `text`
-2. `node`: an array of nodes
-
-## Text
-Originally parsed `text`
