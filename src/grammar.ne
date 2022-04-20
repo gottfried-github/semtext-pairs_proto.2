@@ -23,6 +23,8 @@ value_single -> (text | entity) {% valueSingle %}
 
 entity_label -> %braceOpen text %braceClose {% entityLabel %}
 
+# text -> ((%braceOpen | %braceClose):* label_text (%braceOpen | %braceClose):*):*
+
 text -> %text {% text %}
 
 _ -> null | %space {% v => { if (v[0].type === "space") {return v[0]} else {return null}; } %}
