@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "a syntax for putting text into an html structure",
   "main": "src/index.js",
+  
   "scripts": {
     "test": "node src/index.js"
   },

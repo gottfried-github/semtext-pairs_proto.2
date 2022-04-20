@@ -1,4 +1,4 @@
-const TAGS = ['div', 'section', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'img']
+const TAGS = ['div', 'section', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'p', 'img']
 
 // function section() {}
 // function div() {}
@@ -26,6 +26,10 @@ function renderBottomUp(node, document) {
     // node either has a label, in which case it is an entity, or it is a text (see Processed data)
     if (!node.label) return document.createTextNode(node.text)
 
+    console.log("renderBottomUp, node.label.value", node.label.value);
+
+    if ('c' === node.label.value) return null
+
     if (!TAGS.includes(node.label.value)) throw new Error()
 
     if ('img' === node.label.value) return img(node.node, document)
@@ -33,7 +37,8 @@ function renderBottomUp(node, document) {
     const dom = document.createElement(node.label.value)
 
     node.node.forEach(node => {
-        dom.appendChild(renderBottomUp(node, document))
+        const child = renderBottomUp(node, document)
+        if (child) dom.appendChild(child)
     })
 
     return dom
