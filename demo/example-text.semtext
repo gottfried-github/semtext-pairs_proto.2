@@ -1,0 +1,22 @@
+(twoLayouts){{
+    (clean){{
+        (illustrationMain){{path/to/image1.png}}
+        (description){{
+            This one arguably feels cleaner than the other one
+        }}
+        (illustrations){{
+            (illustration){{{path/to/image2.png}}
+            (illustration){{{path/to/image3.png}}
+        }}
+    }}
+    (compact){{
+        (imageUrl){{path/to/image4.png}}
+        (description){{
+            This fits more information per unit space
+        }}
+        (illustrations){{
+            (illustration){{{path/to/image5.png}}
+            (illustration){{{path/to/image6.png}}
+        }}
+    }}
+}}
