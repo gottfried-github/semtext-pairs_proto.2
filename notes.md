@@ -47,12 +47,3 @@ The nodes are either `entity` or `text`. The root node is always an `entity`.
 
 ## Text
 Originally parsed `text`
-
-# Converter
-Any render function (be it `renderBottomUp` or `img`) should return a dom node.
-
-## `renderBottomUp`
-Creates a dom node with the corresponding tag, appends the rendered children and returns the node.
-
-## `img`
-Treats first occurring `text` node as the `src` attribute.
