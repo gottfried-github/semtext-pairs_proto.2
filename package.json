@@ -4,7 +4,7 @@
   "description": "syntax for creating nested named lists of text and lists, via label-entity pairs",
   "main": "src/index.js",
   "scripts": {
-    "test": "node src/index.js"
+    "test": "node src/grammar.js"
   },
   "repository": {
     "type": "git",

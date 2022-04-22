@@ -1,4 +1,7 @@
 # Semantic text via label/entity pairs
+## Install
+`npm i --save semtext-pairs_proto.2`
+
 ## Syntax
 The syntax has two tokens:
     1. **entity:** `{{}}`
@@ -22,3 +25,13 @@ The nodes are either `entity` or `text`. The root node is always an `entity`.
 
 ## Text
 Originally parsed `text`
+
+## Use
+```javascript
+import nearley from 'nearley'
+import grammar from 'semtext-pairs_proto.2'
+
+const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+parser.feed("(article){{My blogpost content here}}")
+const parsed = parser.results[0]
+```
